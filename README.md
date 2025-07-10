@@ -92,14 +92,11 @@ audio_detection/
 
 ## 4 . Road-map / TODO
 
-| Milestone             | Description                                                                                                                      |                                                       |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| **Whisper STT**       | Replace Vosk with `openai-whisper` (tiny-int8 on Jetson) for better accuracy in accents/noisy scenes.                            |                                                       |
-| **Sound-type model**  | Train a small CNN/CRNN that flags *abnormal* acoustic events (alarms, glass breaks, shrieks) <br>→ `classifiers/abnormality.py`. |                                                       |
-| **Modular CLI**       | `detector.py --mode speech --mode abnormal`, configurable YAML.                                                                  |                                                       |
-| **Docker image**      | CUDA-enabled base for Jetson (*l4t-base-runtime + TF + PyTorch + FFmpeg*).                                                       |                                                       |
-| **OTA update script** | Simple \`curl                                                                                                                    | sh\` to pull the latest model & scripts in the field. |
-| **WebSocket service** | Publish JSON events to a local dashboard (Grafana/React).                                                                        |                                                       |
+| Milestone             | Description                                                                                                                      |                                                       
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Whisper STT**       | Replace Vosk with `openai-whisper` (tiny-int8 on Jetson) for better accuracy in accents/noisy scenes.                            |                                                       
+| **Sound-type model**  | Train a small CNN/CRNN that flags *abnormal* acoustic events (alarms, glass breaks, shrieks) <br>→ `classifiers/abnormality.py`. |                                                       
+
 
 ---
 
