@@ -1,0 +1,14 @@
+# TensorFlow + TF-TRT
+tensorflow==2.12.0+nv23.06
+tensorflow-hub
+
+# Audio I/O & processing
+sounddevice
+librosa
+numpy
+
+# Speech-to-Text
+whisper
+
+# Text sentiment
+transformers
