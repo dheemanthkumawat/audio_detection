@@ -1,0 +1,20 @@
+# Quiet office profile - more sensitive thresholds
+audio:
+  buffer_duration: 7.0       # longer buffer for better transcription in quiet office
+
+analysis:
+  thresholds:
+    speech_threshold: 0.2
+    abnormal_threshold: 0.15
+    
+  # More office-appropriate abnormal sound groups
+  abnormal_label_groups:
+    siren: ["Siren", "Civil defense siren"]
+    alarm: ["Alarm", "Smoke detector, smoke alarm", "Car alarm", "Buzzer", "Reversing beeps", "Air horn, truck horn"]
+    glass: ["Breaking", "Glass", "Shatter"]
+    scream: ["Scream", "Yell", "Child shriek", "Screech"]
+    gunshot: ["Gunshot, gunfire"]
+    loud_sounds: ["Laughter", "Yell", "Shout"]
+
+logging:
+  level: "DEBUG"

@@ -1,0 +1,47 @@
+audio:
+  device_sample_rate: 44100  # microphone native rate
+  panns_sample_rate: 32000   # PANNs model rate
+  vosk_sample_rate: 16000    # Vosk STT rate
+  window_size: 1.0           # seconds
+  stride: 0.5                # seconds overlap
+  blocksize: 0.1             # audio callback block size
+  buffer_duration: 5.0       # rolling buffer duration for Vosk (seconds)
+  device_index: null         # auto-detect if null
+  device_name: null          # auto-detect if null
+
+analysis:
+  backend: "panns"  # or "yamnet"
+  
+  # Abnormal sound detection label groups
+  abnormal_label_groups:
+    siren: ["Siren", "Civil defense siren"]
+    alarm: ["Alarm", "Smoke detector, smoke alarm", "Car alarm", "Buzzer", "Reversing beeps", "Air horn, truck horn"]
+    glass: ["Breaking", "Glass", "Shatter"]
+    scream: ["Scream", "Yell", "Child shriek", "Screech"]
+    gunshot: ["Gunshot, gunfire"]
+    
+  # Thresholds for classification
+  thresholds:
+    speech_threshold: 0.3
+    abnormal_threshold: 0.35
+
+stt:
+  backend: "vosk"  # future: "whisper", "riva"
+  model_path: "models/vosk-small-en"
+
+sentiment:
+  enabled: true
+  keywords:
+    negative: ["help", "emergency", "fire", "police", "danger"]
+    positive: ["thank", "good", "great", "wonderful"]
+
+mqtt:
+  enabled: false
+  broker: "localhost:1883"
+  topic: "audio/events"
+  username: null
+  password: null
+
+logging:
+  events_file: "logs/events.jsonl"
+  level: "INFO"
