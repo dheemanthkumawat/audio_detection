@@ -105,8 +105,6 @@ class LiveAudioPipeline:
             
             if session_action == 'start_session':
                 self._handle_speech_session_start()
-                # Try transcription when session starts (hybrid approach)
-                self._try_transcription("session_start")
                 
             elif session_action == 'end_session':
                 self._handle_speech_session_end()
