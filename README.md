@@ -33,7 +33,7 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
 
 4. **List audio devices (find your microphone):**
    ```bash
-   python main_new.py --list-devices
+   python main.py --list-devices
    ```
 
 5. **Configure audio device (optional):**
@@ -44,12 +44,12 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
 
 6. **Run with default config:**
    ```bash
-   python main_new.py
+   python main.py
    ```
 
 7. **Run with quiet-office profile:**
    ```bash
-   python main_new.py --profile quiet-office
+   python main.py --profile quiet-office
    ```
 
 ## Features
@@ -75,7 +75,7 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
 
 ```
 audio_detection/
-├── main_new.py             # Entry point
+├── main.py                 # Entry point
 ├── src/
 │   ├── pipeline.py         # Main pipeline orchestration
 │   ├── audio/
@@ -131,7 +131,7 @@ Events are logged in real-time to console and stored locally:
 
 1. **No audio device found:**
    ```bash
-   python main_new.py --list-devices
+   python main.py --list-devices
    # Copy the correct device index to .env file
    ```
 
