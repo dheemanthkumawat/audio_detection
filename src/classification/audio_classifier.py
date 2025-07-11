@@ -91,31 +91,15 @@ class AudioClassifier:
     def transcribe_speech(self, audio_data: np.ndarray) -> Optional[str]:
         """Transcribe speech using STT"""
         if not self.stt_model:
-            logger.warning("No STT model available for transcription")
             return None
         
-        try:
-            # Convert float32 to int16 for Vosk
-            audio_int16 = (audio_data * 32767).astype(np.int16).tobytes()
-            
-            logger.debug(f"Transcribing audio buffer: {len(audio_data)} samples, {len(audio_int16)} bytes")
-            
-            # Process the audio data
-            self.stt_recognizer.AcceptWaveform(audio_int16)
-            
-            # Get the final result
-            final_result = json.loads(self.stt_recognizer.FinalResult())
-            text = final_result.get("text", "").strip()
-            
-            if text:
-                logger.info(f"Transcription successful: '{text}'")
-                return text
-            else:
-                logger.warning("No transcription result from Vosk")
-                
-        except Exception as e:
-            logger.error(f"Error in transcription: {e}")
-            
+        # Convert float32 to int16 for Vosk
+        audio_int16 = (audio_data * 32767).astype(np.int16).tobytes()
+        
+        if self.stt_recognizer.AcceptWaveform(audio_int16):
+            result = json.loads(self.stt_recognizer.Result())
+            return result.get("text", "").strip()
+        
         return None
     
     def is_speech(self, scores: np.ndarray) -> bool:

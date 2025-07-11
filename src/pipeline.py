@@ -105,8 +105,17 @@ class LiveAudioPipeline:
             
             if session_action == 'start_session':
                 self._handle_speech_session_start()
+                # Try transcription when session starts (hybrid approach)
+                self._try_transcription("session_start")
+                
             elif session_action == 'end_session':
                 self._handle_speech_session_end()
+                
+            # Also try transcription during active speech (but limit frequency to prevent bouncing)
+            elif is_speech and self.speech_session_manager.state.value == "speech_active":
+                # Only try transcription every 10 windows during active speech to prevent spam
+                if self.total_windows_processed % 10 == 0:
+                    self._try_transcription("session_active")
             
             # Log debug info every 50 windows
             if self.total_windows_processed % 50 == 0:
@@ -151,23 +160,20 @@ class LiveAudioPipeline:
         self.speech_sessions_detected += 1
         self.logger.info(f"Speech session #{self.speech_sessions_detected} started")
     
-    def _handle_speech_session_end(self):
-        """Handle end of speech session - trigger transcription"""
-        self.logger.info("Speech session ended - starting transcription")
+    def _try_transcription(self, trigger: str):
+        """Try transcription with debugging info"""
+        print(f"🔄 Attempting transcription (trigger: {trigger})...")
         
-        # Get buffered audio (includes context before speech detection)
+        # Get buffered audio
         buffered_audio = self.audio_processor.get_buffered_audio()
         
-        self.logger.info(f"Buffered audio length: {len(buffered_audio)} samples ({len(buffered_audio)/16000:.1f}s)")
-        
-        if len(buffered_audio) > 8000:  # At least 0.5 seconds at 16kHz
-            print(f"🔄 Transcribing {len(buffered_audio)/16000:.1f}s of audio...")
+        if len(buffered_audio) > 8000:  # At least 0.5 seconds
+            print(f"🔄 Transcribing {len(buffered_audio)/16000:.1f}s of buffered audio...")
             
-            # Use buffered audio for Vosk STT (includes pre-speech context)
             transcript = self.classifier.transcribe_speech(buffered_audio)
             
             if transcript:
-                print(f"🗣 Speech: {transcript}")
+                print(f"🗣 Speech ({trigger}): {transcript}")
                 
                 # Analyze sentiment
                 sentiment = self.classifier.analyze_sentiment(transcript)
@@ -180,7 +186,7 @@ class LiveAudioPipeline:
                 self.local_storage.store_speech(
                     transcript=transcript,
                     sentiment=sentiment,
-                    confidence=0.8,  # Default confidence for Vosk
+                    confidence=0.8,
                     duration=session_duration
                 )
                 
@@ -202,12 +208,19 @@ class LiveAudioPipeline:
                         transcript,
                         sentiment
                     )
+                
+                return True  # Success
             else:
-                print("❌ No transcript generated from Vosk")
-                self.logger.warning("Speech session ended but no transcript generated")
+                print(f"❌ No transcript from {trigger} attempt")
+                return False
         else:
-            print(f"⚠️  Audio buffer too short for transcription: {len(buffered_audio)} samples")
-            self.logger.warning("Speech session ended but buffered audio too short")
+            print(f"⚠️  Buffer too short for transcription: {len(buffered_audio)} samples")
+            return False
+    
+    def _handle_speech_session_end(self):
+        """Handle end of speech session - trigger final transcription"""
+        self.logger.info("Speech session ended - final transcription attempt")
+        self._try_transcription("session_end")
     
     def run(self):
         """Run the live audio analysis pipeline"""
