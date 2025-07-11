@@ -25,22 +25,24 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
 
 4. **Run with default config:**
    ```bash
-   python main.py
+   python main_new.py
    ```
 
 5. **Run with quiet-office profile:**
    ```bash
-   python main.py --profile quiet-office
+   python main_new.py --profile quiet-office
    ```
 
 ## Features
 
 - **Real-time audio classification** using PANNs CNN14 (527 AudioSet classes)
+- **Smart speech session management** - prevents bouncing, captures complete conversations
+- **Buffered transcription** - 5-second rolling buffer ensures no speech is lost
 - **Anomaly detection** for sirens, alarms, glass breaking, screams, gunshots
 - **Speech-to-text** using Vosk for offline transcription  
 - **Sentiment analysis** with keyword matching
+- **Local data storage** - CSV files for analysis, JSON for events
 - **MQTT publishing** for event streaming
-- **JSON logging** to `logs/events.jsonl`
 
 ## Configuration
 
@@ -50,17 +52,41 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
 
 ## Architecture
 
-- `main.py` - Entry point and pipeline orchestration
-- `config.py` - Configuration management with YAML + env overrides
-- `audio_processor.py` - Audio capture, resampling, windowing
-- `classifier.py` - PANNs classification, Vosk STT, sentiment analysis
-- `event_logger.py` - Event logging and MQTT publishing
+```
+live_audio/
+├── main.py                 # Entry point
+├── src/
+│   ├── pipeline.py         # Main pipeline orchestration
+│   ├── audio/
+│   │   ├── processor.py    # Audio capture & buffering
+│   │   └── speech_session.py # Speech session management
+│   ├── classification/
+│   │   └── audio_classifier.py # PANNs + Vosk integration
+│   ├── events/
+│   │   ├── logger.py       # MQTT/Event logging
+│   │   └── storage.py      # Local data storage
+│   └── utils/
+│       └── config.py       # Configuration management
+├── config/                 # YAML configuration files
+├── data/                   # Local storage (CSV + JSON)
+└── logs/                   # Application logs
+```
 
 ## Output
 
-Events are logged in real-time to console and `logs/events.jsonl`:
+Events are logged in real-time to console and stored locally:
+
+**Console Output:**
 ```
-[PANNs] Speech (0.847)
-🗣 Speech: hello world
-🚨 14:23:15  ABNORMAL ALARM (0.92)
+🔴 Live Audio Pipeline Starting...
+[PANNs] Speech (0.847) [Window 45]
+🗣 Speech: hello world this is a complete sentence
+🚨 14:23:15 ABNORMAL ALARM (0.92)
+📊 Session Statistics: 245 windows, 3 speech sessions, 1 anomaly
 ```
+
+**Local Storage:**
+- `data/events.jsonl` - All events in JSON format
+- `data/speech_transcripts.csv` - Speech transcriptions with metadata
+- `data/anomalies.csv` - Detected anomalies with classifications
+- `data/daily_summary.json` - Daily statistics and summaries

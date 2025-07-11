@@ -18,3 +18,9 @@ analysis:
 
 logging:
   level: "DEBUG"
+
+# More sensitive speech session management for office
+speech_session:
+  min_length: 0.8          # shorter minimum for quick responses
+  max_silence_gap: 2.0     # longer gap tolerance for office interruptions
+  silence_threshold: 4     # more tolerance for pauses

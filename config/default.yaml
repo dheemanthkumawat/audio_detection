@@ -45,3 +45,14 @@ mqtt:
 logging:
   events_file: "logs/events.jsonl"
   level: "INFO"
+
+# Speech session management (prevents bouncing)
+speech_session:
+  min_length: 1.0          # minimum session duration (seconds)
+  max_silence_gap: 1.5     # max silence before considering session end (seconds)
+  silence_threshold: 3     # number of silent windows before ending session
+
+# Local storage configuration
+storage:
+  base_dir: "data"         # directory for local data storage
+  cleanup_days: 30         # days to keep data
