@@ -1,0 +1,824 @@
+2025-07-11 13:07:32,514 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 13:07:32,514 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 13:07:32,514 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 13:07:32,514 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 13:07:32,515 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 13:07:32,515 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 13:07:32,522 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 13:07:39,176 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 13:07:39,392 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 13:07:39,392 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 13:07:39,392 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 13:07:39,392 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 13:07:39,392 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 13:07:39,392 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 13:07:39,392 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 13:07:39,393 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 13:07:39,393 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 13:07:39,393 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 13:07:39,394 - src.audio.processor - INFO - Audio stream started
+2025-07-11 13:09:49,904 - src.pipeline - INFO - Speech session #1 started
+2025-07-11 13:10:54,905 - src.audio.speech_session - INFO - Speech session ended (duration: 65.0s)
+2025-07-11 13:10:54,905 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:13:29,405 - src.pipeline - INFO - Speech session #2 started
+2025-07-11 13:13:34,905 - src.audio.speech_session - INFO - Speech session ended (duration: 5.5s)
+2025-07-11 13:13:34,905 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:13:38,905 - src.pipeline - INFO - Speech session #3 started
+2025-07-11 13:13:47,905 - src.audio.speech_session - INFO - Speech session ended (duration: 9.0s)
+2025-07-11 13:13:47,905 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:14:01,904 - src.pipeline - INFO - Speech session #4 started
+2025-07-11 13:14:03,904 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:14:03,904 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:14:04,404 - src.pipeline - INFO - Speech session #5 started
+2025-07-11 13:14:07,404 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 13:14:07,404 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:14:47,904 - src.pipeline - INFO - Speech session #6 started
+2025-07-11 13:14:51,904 - src.audio.speech_session - INFO - Speech session ended (duration: 4.0s)
+2025-07-11 13:14:51,904 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:15:52,404 - src.pipeline - INFO - Speech session #7 started
+2025-07-11 13:15:54,904 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:15:54,904 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:16:10,475 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 13:16:10,901 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 13:16:11,001 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 13:16:11,910 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-11 13:16:11,910 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 13:18:08,588 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 13:18:08,588 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 13:18:08,588 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 13:18:08,588 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 13:18:08,588 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 13:18:08,588 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 13:18:08,596 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 13:18:10,115 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 13:18:10,328 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 13:18:10,329 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 13:18:10,329 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 13:18:10,329 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 13:18:10,329 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 13:18:10,329 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 13:18:10,329 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 13:18:10,329 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 13:18:10,329 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 13:18:10,329 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 13:18:10,330 - src.audio.processor - INFO - Audio stream started
+2025-07-11 13:18:39,838 - src.pipeline - INFO - Speech session #1 started
+2025-07-11 13:18:59,338 - src.audio.speech_session - INFO - Speech session ended (duration: 19.5s)
+2025-07-11 13:18:59,338 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:18:59,340 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:18:59,589 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:18:59,589 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:19:27,200 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 13:19:27,336 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 13:19:27,435 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 13:19:28,404 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-11 13:19:28,405 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 13:26:17,934 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 13:26:17,935 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 13:26:17,935 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 13:26:17,935 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 13:26:17,935 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 13:26:17,935 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 13:26:17,942 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 13:26:19,450 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 13:26:19,668 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 13:26:19,668 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 13:26:19,668 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 13:26:19,668 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 13:26:19,668 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 13:26:19,668 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 13:26:19,669 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 13:26:19,669 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 13:26:19,669 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 13:26:19,669 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 13:26:19,670 - src.audio.processor - INFO - Audio stream started
+2025-07-11 13:26:37,678 - src.pipeline - INFO - Speech session #1 started
+2025-07-11 13:26:53,179 - src.audio.speech_session - INFO - Speech session ended (duration: 15.5s)
+2025-07-11 13:26:53,179 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:26:53,180 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:26:53,450 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:26:53,451 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:26:57,679 - src.pipeline - INFO - Speech session #2 started
+2025-07-11 13:27:19,679 - src.audio.speech_session - INFO - Speech session ended (duration: 22.0s)
+2025-07-11 13:27:19,679 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:27:19,681 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:27:19,977 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:27:19,978 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:28:01,179 - src.pipeline - INFO - Speech session #3 started
+2025-07-11 13:28:03,179 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:28:03,179 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:28:03,181 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:28:03,457 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:28:03,458 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:28:07,179 - src.pipeline - INFO - Speech session #4 started
+2025-07-11 13:28:13,679 - src.audio.speech_session - INFO - Speech session ended (duration: 6.5s)
+2025-07-11 13:28:13,679 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:28:13,681 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:28:13,959 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:28:13,959 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:28:28,179 - src.pipeline - INFO - Speech session #5 started
+2025-07-11 13:28:30,679 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:28:30,680 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:28:30,681 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:28:30,955 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:28:30,956 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:28:37,179 - src.pipeline - INFO - Speech session #6 started
+2025-07-11 13:28:45,680 - src.audio.speech_session - INFO - Speech session ended (duration: 8.5s)
+2025-07-11 13:28:45,680 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:28:45,681 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:28:45,963 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:28:45,964 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:28:48,180 - src.pipeline - INFO - Speech session #7 started
+2025-07-11 13:28:51,180 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 13:28:51,180 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:28:51,181 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:28:51,448 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:28:51,449 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:29:15,680 - src.pipeline - INFO - Speech session #8 started
+2025-07-11 13:29:21,680 - src.audio.speech_session - INFO - Speech session ended (duration: 6.0s)
+2025-07-11 13:29:21,680 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:29:21,682 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:29:21,953 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:29:21,954 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:29:49,180 - src.pipeline - INFO - Speech session #9 started
+2025-07-11 13:29:52,680 - src.audio.speech_session - INFO - Speech session ended (duration: 3.5s)
+2025-07-11 13:29:52,680 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:29:52,682 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:29:52,952 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:29:52,953 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:29:55,181 - src.pipeline - INFO - Speech session #10 started
+2025-07-11 13:29:57,180 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:29:57,180 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:29:57,182 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:29:57,455 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:29:57,456 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:30:00,680 - src.pipeline - INFO - Speech session #11 started
+2025-07-11 13:30:05,180 - src.audio.speech_session - INFO - Speech session ended (duration: 4.5s)
+2025-07-11 13:30:05,180 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:30:05,182 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:30:05,453 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:30:05,455 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:30:11,681 - src.pipeline - INFO - Speech session #12 started
+2025-07-11 13:30:14,680 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 13:30:14,681 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:30:14,682 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:30:14,938 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:30:14,939 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:30:15,181 - src.pipeline - INFO - Speech session #13 started
+2025-07-11 13:30:17,181 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:30:17,181 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:30:17,182 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:30:17,448 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:30:17,449 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:30:19,181 - src.pipeline - INFO - Speech session #14 started
+2025-07-11 13:30:21,181 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:30:21,181 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:30:21,182 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:30:21,455 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:30:21,456 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:30:27,181 - src.pipeline - INFO - Speech session #15 started
+2025-07-11 13:30:29,181 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:30:29,181 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:30:29,183 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:30:29,448 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:30:29,449 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:30:30,681 - src.pipeline - INFO - Speech session #16 started
+2025-07-11 13:30:39,681 - src.audio.speech_session - INFO - Speech session ended (duration: 9.0s)
+2025-07-11 13:30:39,681 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:30:39,683 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:30:39,951 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:30:39,952 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:30:47,181 - src.pipeline - INFO - Speech session #17 started
+2025-07-11 13:31:06,181 - src.audio.speech_session - INFO - Speech session ended (duration: 19.0s)
+2025-07-11 13:31:06,181 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:31:06,183 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:31:06,457 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:31:06,458 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:31:07,681 - src.pipeline - INFO - Speech session #18 started
+2025-07-11 13:31:11,181 - src.audio.speech_session - INFO - Speech session ended (duration: 3.5s)
+2025-07-11 13:31:11,181 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:31:11,183 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:31:11,447 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:31:11,448 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:31:11,681 - src.pipeline - INFO - Speech session #19 started
+2025-07-11 13:31:14,181 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:31:14,181 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:31:14,183 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:31:14,443 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:31:14,444 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:31:15,681 - src.pipeline - INFO - Speech session #20 started
+2025-07-11 13:31:17,681 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:31:17,681 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:31:17,683 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:31:17,944 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:31:17,945 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:01,682 - src.pipeline - INFO - Speech session #21 started
+2025-07-11 13:32:04,182 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:32:04,182 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:32:04,183 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:32:04,457 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:32:04,458 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:05,182 - src.pipeline - INFO - Speech session #22 started
+2025-07-11 13:32:08,682 - src.audio.speech_session - INFO - Speech session ended (duration: 3.5s)
+2025-07-11 13:32:08,682 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:32:08,684 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:32:08,946 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:32:08,947 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:12,182 - src.pipeline - INFO - Speech session #23 started
+2025-07-11 13:32:18,682 - src.audio.speech_session - INFO - Speech session ended (duration: 6.5s)
+2025-07-11 13:32:18,682 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:32:18,683 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:32:18,957 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:32:18,958 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:22,182 - src.pipeline - INFO - Speech session #24 started
+2025-07-11 13:32:24,182 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:32:24,182 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:32:24,184 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:32:24,459 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:32:24,461 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:26,682 - src.pipeline - INFO - Speech session #25 started
+2025-07-11 13:32:29,682 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 13:32:29,682 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:32:29,684 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:32:29,954 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:32:29,955 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:31,682 - src.pipeline - INFO - Speech session #26 started
+2025-07-11 13:32:33,682 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:32:33,682 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:32:33,684 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:32:33,952 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:32:33,953 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:37,182 - src.pipeline - INFO - Speech session #27 started
+2025-07-11 13:32:40,682 - src.audio.speech_session - INFO - Speech session ended (duration: 3.5s)
+2025-07-11 13:32:40,682 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:32:40,684 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:32:40,960 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:32:40,961 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:32:46,182 - src.pipeline - INFO - Speech session #28 started
+2025-07-11 13:33:11,182 - src.audio.speech_session - INFO - Speech session ended (duration: 25.0s)
+2025-07-11 13:33:11,182 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:33:11,184 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:33:11,456 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:33:11,457 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:33:12,683 - src.pipeline - INFO - Speech session #29 started
+2025-07-11 13:34:18,683 - src.audio.speech_session - INFO - Speech session ended (duration: 66.0s)
+2025-07-11 13:34:18,683 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:34:18,685 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:34:18,972 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:34:18,973 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:34:22,683 - src.pipeline - INFO - Speech session #30 started
+2025-07-11 13:35:05,684 - src.audio.speech_session - INFO - Speech session ended (duration: 43.0s)
+2025-07-11 13:35:05,684 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:35:05,686 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:35:05,972 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:35:05,973 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:35:06,184 - src.pipeline - INFO - Speech session #31 started
+2025-07-11 13:35:15,684 - src.audio.speech_session - INFO - Speech session ended (duration: 9.5s)
+2025-07-11 13:35:15,684 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:35:15,686 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:35:15,942 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:35:15,943 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:35:16,184 - src.pipeline - INFO - Speech session #32 started
+2025-07-11 13:35:23,684 - src.audio.speech_session - INFO - Speech session ended (duration: 7.5s)
+2025-07-11 13:35:23,684 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:35:23,686 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:35:23,951 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:35:23,952 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:35:27,184 - src.pipeline - INFO - Speech session #33 started
+2025-07-11 13:36:15,185 - src.audio.speech_session - INFO - Speech session ended (duration: 48.0s)
+2025-07-11 13:36:15,185 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:36:15,186 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:36:15,470 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:36:15,472 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:36:15,685 - src.pipeline - INFO - Speech session #34 started
+2025-07-11 13:36:31,185 - src.audio.speech_session - INFO - Speech session ended (duration: 15.5s)
+2025-07-11 13:36:31,185 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:36:31,186 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:36:31,463 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:36:31,464 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:36:31,685 - src.pipeline - INFO - Speech session #35 started
+2025-07-11 13:37:01,185 - src.audio.speech_session - INFO - Speech session ended (duration: 29.5s)
+2025-07-11 13:37:01,185 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:37:01,187 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:37:01,459 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:37:01,460 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:37:04,685 - src.pipeline - INFO - Speech session #36 started
+2025-07-11 13:37:08,185 - src.audio.speech_session - INFO - Speech session ended (duration: 3.5s)
+2025-07-11 13:37:08,185 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:37:08,187 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:37:08,461 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:37:08,462 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:37:17,686 - src.pipeline - INFO - Speech session #37 started
+2025-07-11 13:38:29,686 - src.audio.speech_session - INFO - Speech session ended (duration: 72.0s)
+2025-07-11 13:38:29,686 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:38:29,688 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:38:29,961 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:38:29,963 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:38:30,686 - src.pipeline - INFO - Speech session #38 started
+2025-07-11 13:38:34,686 - src.audio.speech_session - INFO - Speech session ended (duration: 4.0s)
+2025-07-11 13:38:34,686 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:38:34,688 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:38:35,007 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:38:35,009 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:38:35,186 - src.pipeline - INFO - Speech session #39 started
+2025-07-11 13:38:37,686 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:38:37,686 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:38:37,688 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:38:37,950 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:38:37,951 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:38:38,686 - src.pipeline - INFO - Speech session #40 started
+2025-07-11 13:38:41,186 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:38:41,186 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:38:41,188 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:38:41,468 - src.classification.audio_classifier - WARNING - No transcription result from Vosk
+2025-07-11 13:38:41,469 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:38:46,506 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 13:38:46,684 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 13:38:46,783 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 13:38:47,392 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-11 13:38:47,392 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 13:42:17,925 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 13:42:17,925 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 13:42:17,925 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 13:42:17,925 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 13:42:17,925 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 13:42:17,925 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 13:42:17,933 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 13:42:19,436 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 13:42:19,649 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 13:42:19,649 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 13:42:19,649 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 13:42:19,649 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 13:42:19,649 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 13:42:19,649 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 13:42:19,650 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 13:42:19,650 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 13:42:19,650 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 13:42:19,650 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 13:42:19,651 - src.audio.processor - INFO - Audio stream started
+2025-07-11 13:42:28,159 - src.pipeline - INFO - Speech session #1 started
+2025-07-11 13:42:30,660 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:42:30,660 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:42:30,662 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:42:30,662 - src.classification.audio_classifier - INFO - Audio stats - Max: 0.006, Mean: 0.002, Length: 80000 samples
+2025-07-11 13:42:30,699 - src.classification.audio_classifier - INFO - Attempting Vosk transcription...
+2025-07-11 13:42:30,700 - src.classification.audio_classifier - INFO - Feeding 160000 bytes to Vosk
+2025-07-11 13:42:30,924 - src.classification.audio_classifier - INFO - Vosk AcceptWaveform returned: 0
+2025-07-11 13:42:30,937 - src.classification.audio_classifier - INFO - Vosk FinalResult: {'text': ''}
+2025-07-11 13:42:30,937 - src.classification.audio_classifier - INFO - Vosk PartialResult: {'text': ''}
+2025-07-11 13:42:30,937 - src.classification.audio_classifier - WARNING - No transcription result from any Vosk method
+2025-07-11 13:42:30,938 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:42:33,159 - src.pipeline - INFO - Speech session #2 started
+2025-07-11 13:42:35,659 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:42:35,659 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:42:35,661 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:42:35,661 - src.classification.audio_classifier - INFO - Audio stats - Max: 0.006, Mean: 0.002, Length: 80000 samples
+2025-07-11 13:42:35,698 - src.classification.audio_classifier - INFO - Attempting Vosk transcription...
+2025-07-11 13:42:35,698 - src.classification.audio_classifier - INFO - Feeding 160000 bytes to Vosk
+2025-07-11 13:42:35,909 - src.classification.audio_classifier - INFO - Vosk AcceptWaveform returned: 0
+2025-07-11 13:42:35,913 - src.classification.audio_classifier - INFO - Vosk FinalResult: {'text': ''}
+2025-07-11 13:42:35,913 - src.classification.audio_classifier - INFO - Vosk PartialResult: {'text': ''}
+2025-07-11 13:42:35,913 - src.classification.audio_classifier - WARNING - No transcription result from any Vosk method
+2025-07-11 13:42:35,914 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:42:35,962 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 13:42:36,156 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 13:42:36,256 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 13:42:36,668 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-11 13:42:36,668 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 13:47:36,703 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 13:47:36,703 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 13:47:36,703 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 13:47:36,703 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 13:47:36,703 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 13:47:36,703 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 13:47:36,711 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 13:47:38,223 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 13:47:38,428 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 13:47:38,428 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 13:47:38,428 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 13:47:38,428 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 13:47:38,428 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 13:47:38,429 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 13:47:38,429 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 13:47:38,429 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 13:47:38,429 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 13:47:38,429 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 13:47:38,430 - src.audio.processor - INFO - Audio stream started
+2025-07-11 13:48:43,440 - src.pipeline - INFO - Speech session #1 started
+2025-07-11 13:48:45,940 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:48:45,940 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:48:45,941 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:48:46,182 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:49:04,940 - src.pipeline - INFO - Speech session #2 started
+2025-07-11 13:49:07,440 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:49:07,440 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:49:07,442 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:49:07,521 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:49:14,440 - src.pipeline - INFO - Speech session #3 started
+2025-07-11 13:49:16,940 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 13:49:16,940 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:49:16,942 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:49:17,029 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:49:18,940 - src.pipeline - INFO - Speech session #4 started
+2025-07-11 13:49:21,940 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 13:49:21,940 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:49:21,942 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:49:22,044 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:49:34,440 - src.pipeline - INFO - Speech session #5 started
+2025-07-11 13:49:37,440 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 13:49:37,440 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:49:37,442 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:49:37,543 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:49:37,940 - src.pipeline - INFO - Speech session #6 started
+2025-07-11 13:49:42,940 - src.audio.speech_session - INFO - Speech session ended (duration: 5.0s)
+2025-07-11 13:49:42,940 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:49:42,942 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:49:43,056 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:49:49,940 - src.pipeline - INFO - Speech session #7 started
+2025-07-11 13:49:53,441 - src.audio.speech_session - INFO - Speech session ended (duration: 3.5s)
+2025-07-11 13:49:53,441 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:49:53,442 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:49:53,546 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:49:55,441 - src.pipeline - INFO - Speech session #8 started
+2025-07-11 13:50:04,941 - src.audio.speech_session - INFO - Speech session ended (duration: 9.5s)
+2025-07-11 13:50:04,941 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:50:04,942 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:50:05,116 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:50:05,441 - src.pipeline - INFO - Speech session #9 started
+2025-07-11 13:50:13,441 - src.audio.speech_session - INFO - Speech session ended (duration: 8.0s)
+2025-07-11 13:50:13,441 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:50:13,442 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:50:13,559 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:50:29,224 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 13:50:29,438 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 13:50:29,538 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 13:50:29,601 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-11 13:50:29,601 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 13:52:19,145 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 13:52:19,145 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 13:52:19,146 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 13:52:19,146 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 13:52:19,146 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 13:52:19,146 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 13:52:19,154 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 13:52:20,647 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 13:52:20,861 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 13:52:20,861 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 13:52:20,861 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 13:52:20,861 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 13:52:20,861 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 13:52:20,862 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 13:52:20,862 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 13:52:20,862 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 13:52:20,862 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 13:52:20,862 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 13:52:20,863 - src.audio.processor - INFO - Audio stream started
+2025-07-11 13:52:22,049 - src.pipeline - INFO - Speech session #1 started
+2025-07-11 13:52:41,872 - src.audio.speech_session - INFO - Speech session ended (duration: 19.8s)
+2025-07-11 13:52:41,872 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:52:41,874 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:52:42,144 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:52:42,872 - src.pipeline - INFO - Speech session #2 started
+2025-07-11 13:52:46,872 - src.audio.speech_session - INFO - Speech session ended (duration: 4.0s)
+2025-07-11 13:52:46,872 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:52:46,874 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:52:47,153 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:52:48,372 - src.pipeline - INFO - Speech session #3 started
+2025-07-11 13:52:51,372 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 13:52:51,372 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:52:51,374 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:52:51,653 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:52:51,872 - src.pipeline - INFO - Speech session #4 started
+2025-07-11 13:52:55,372 - src.audio.speech_session - INFO - Speech session ended (duration: 3.5s)
+2025-07-11 13:52:55,372 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:52:55,374 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:52:55,658 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:53:06,372 - src.pipeline - INFO - Speech session #5 started
+2025-07-11 13:53:30,872 - src.audio.speech_session - INFO - Speech session ended (duration: 24.5s)
+2025-07-11 13:53:30,872 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:53:30,874 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:53:31,199 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:53:42,372 - src.pipeline - INFO - Speech session #6 started
+2025-07-11 13:53:44,372 - src.audio.speech_session - INFO - Speech session ended (duration: 2.0s)
+2025-07-11 13:53:44,372 - src.pipeline - INFO - Speech session ended - starting transcription
+2025-07-11 13:53:44,374 - src.pipeline - INFO - Buffered audio length: 80000 samples (5.0s)
+2025-07-11 13:53:44,655 - src.pipeline - WARNING - Speech session ended but no transcript generated
+2025-07-11 13:53:48,696 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 13:53:48,870 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 13:53:48,969 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 13:53:49,957 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-11 13:53:49,958 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 14:09:14,928 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 14:09:14,928 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 14:09:14,929 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 14:09:14,929 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 14:09:14,929 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 14:09:14,929 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 14:09:14,937 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 14:09:16,454 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 14:09:16,674 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 14:09:16,674 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 14:09:16,674 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 14:09:16,674 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 14:09:16,674 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 14:09:16,674 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 14:09:16,675 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 14:09:16,675 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 14:09:16,675 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 14:09:16,675 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 14:09:16,676 - src.audio.processor - INFO - Audio stream started
+2025-07-11 14:09:51,684 - src.pipeline - INFO - Speech session #1 started
+2025-07-11 14:10:07,684 - src.audio.speech_session - INFO - Speech session ended (duration: 16.0s)
+2025-07-11 14:10:07,684 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:10:07,952 - src.events.storage - INFO - Speech stored: with a skeleton bow off to a issue of how about th...
+2025-07-11 14:10:07,953 - src.events.logger - INFO - Speech detected: with a skeleton bow off to a issue of how about th...
+2025-07-11 14:10:18,684 - src.pipeline - INFO - Speech session #2 started
+2025-07-11 14:10:25,684 - src.audio.speech_session - INFO - Speech session ended (duration: 7.0s)
+2025-07-11 14:10:25,685 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:10:25,896 - src.events.storage - INFO - Speech stored: wow off to a bow off to a his...
+2025-07-11 14:10:25,896 - src.events.logger - INFO - Speech detected: wow off to a bow off to a his...
+2025-07-11 14:10:37,184 - src.pipeline - INFO - Speech session #3 started
+2025-07-11 14:10:57,467 - src.events.storage - INFO - Speech stored: chris rate of progress you want mosque released hi...
+2025-07-11 14:10:57,468 - src.events.logger - INFO - Speech detected: chris rate of progress you want mosque released hi...
+2025-07-11 14:11:22,398 - src.events.storage - INFO - Speech stored: are built and four hours if you want himself claim...
+2025-07-11 14:11:22,398 - src.events.logger - INFO - Speech detected: are built and four hours if you want himself claim...
+2025-07-11 14:11:26,685 - src.audio.speech_session - INFO - Speech session ended (duration: 49.5s)
+2025-07-11 14:11:26,685 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:11:26,864 - src.events.storage - INFO - Speech stored: feed off each day as the austrian painter he does...
+2025-07-11 14:11:26,864 - src.events.logger - INFO - Speech detected: feed off each day as the austrian painter he does...
+2025-07-11 14:11:33,686 - src.pipeline - INFO - Speech session #4 started
+2025-07-11 14:11:38,685 - src.audio.speech_session - INFO - Speech session ended (duration: 5.0s)
+2025-07-11 14:11:38,685 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:11:50,686 - src.pipeline - INFO - Speech session #5 started
+2025-07-11 14:12:03,186 - src.audio.speech_session - INFO - Speech session ended (duration: 12.5s)
+2025-07-11 14:12:03,186 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:12:06,186 - src.pipeline - INFO - Speech session #6 started
+2025-07-11 14:12:08,686 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 14:12:08,686 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:12:14,686 - src.pipeline - INFO - Speech session #7 started
+2025-07-11 14:12:20,186 - src.audio.speech_session - INFO - Speech session ended (duration: 5.5s)
+2025-07-11 14:12:20,186 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:12:23,186 - src.pipeline - INFO - Speech session #8 started
+2025-07-11 14:12:25,686 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 14:12:25,686 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:12:26,186 - src.pipeline - INFO - Speech session #9 started
+2025-07-11 14:12:54,186 - src.audio.speech_session - INFO - Speech session ended (duration: 28.0s)
+2025-07-11 14:12:54,186 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:12:56,686 - src.pipeline - INFO - Speech session #10 started
+2025-07-11 14:13:16,687 - src.audio.speech_session - INFO - Speech session ended (duration: 20.0s)
+2025-07-11 14:13:16,687 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:13:17,687 - src.pipeline - INFO - Speech session #11 started
+2025-07-11 14:13:20,187 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 14:13:20,187 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:13:35,187 - src.pipeline - INFO - Speech session #12 started
+2025-07-11 14:13:42,786 - src.events.storage - INFO - Speech stored: oh i love my football...
+2025-07-11 14:13:42,786 - src.events.logger - INFO - Speech detected: oh i love my football...
+2025-07-11 14:13:47,513 - src.events.storage - INFO - Speech stored: table...
+2025-07-11 14:13:47,514 - src.events.logger - INFO - Speech detected: table...
+2025-07-11 14:13:52,371 - src.events.storage - INFO - Speech stored: yeah...
+2025-07-11 14:13:52,372 - src.events.logger - INFO - Speech detected: yeah...
+2025-07-11 14:13:57,662 - src.events.storage - INFO - Speech stored: for you to say what right know...
+2025-07-11 14:13:57,662 - src.events.logger - INFO - Speech detected: for you to say what right know...
+2025-07-11 14:14:09,187 - src.audio.speech_session - INFO - Speech session ended (duration: 34.0s)
+2025-07-11 14:14:09,187 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:14:09,565 - src.events.storage - INFO - Speech stored: go in and just won't give you support you should w...
+2025-07-11 14:14:09,565 - src.events.logger - INFO - Speech detected: go in and just won't give you support you should w...
+2025-07-11 14:14:14,187 - src.pipeline - INFO - Speech session #13 started
+2025-07-11 14:14:17,514 - src.events.storage - INFO - Speech stored: oh boy playing...
+2025-07-11 14:14:17,514 - src.events.logger - INFO - Speech detected: oh boy playing...
+2025-07-11 14:14:22,376 - src.events.storage - INFO - Speech stored: no more...
+2025-07-11 14:14:22,376 - src.events.logger - INFO - Speech detected: no more...
+2025-07-11 14:14:24,188 - src.audio.speech_session - INFO - Speech session ended (duration: 10.0s)
+2025-07-11 14:14:24,188 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:14:29,187 - src.pipeline - INFO - Speech session #14 started
+2025-07-11 14:14:32,188 - src.audio.speech_session - INFO - Speech session ended (duration: 3.0s)
+2025-07-11 14:14:32,188 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:14:33,188 - src.pipeline - INFO - Speech session #15 started
+2025-07-11 14:14:35,688 - src.audio.speech_session - INFO - Speech session ended (duration: 2.5s)
+2025-07-11 14:14:35,688 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:14:36,188 - src.pipeline - INFO - Speech session #16 started
+2025-07-11 14:14:47,576 - src.events.storage - INFO - Speech stored: no...
+2025-07-11 14:14:47,576 - src.events.logger - INFO - Speech detected: no...
+2025-07-11 14:15:07,477 - src.events.storage - INFO - Speech stored: what we're here...
+2025-07-11 14:15:07,477 - src.events.logger - INFO - Speech detected: what we're here...
+2025-07-11 14:15:10,688 - src.audio.speech_session - INFO - Speech session ended (duration: 34.5s)
+2025-07-11 14:15:10,688 - src.pipeline - INFO - Speech session ended - final transcription attempt
+2025-07-11 14:18:09,116 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 14:18:09,188 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 14:18:09,287 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 14:18:09,661 - src.events.storage - INFO - Daily summary saved: 14 events
+2025-07-11 14:18:09,661 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 14:18:12,429 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 14:18:12,430 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 14:18:12,430 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 14:18:12,430 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 14:18:12,430 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 14:18:12,430 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 14:18:12,438 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 14:18:13,952 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 14:18:14,167 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 14:18:14,167 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 14:18:14,167 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 14:18:14,167 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 14:18:14,167 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 14:18:14,167 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 14:18:14,168 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 14:18:14,168 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 14:18:14,168 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 14:18:14,168 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 14:18:14,169 - src.audio.processor - INFO - Audio stream started
+2025-07-11 14:18:15,356 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:15,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:16,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:16,677 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:17,177 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:17,677 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:18,177 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:18,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:19,177 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:19,677 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:20,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:20,677 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:21,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:21,677 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:22,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:22,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:23,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:23,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:24,177 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:24,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:25,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:25,677 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:26,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:26,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:27,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:27,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:28,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:28,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:29,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:29,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:30,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:30,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:31,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:31,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:32,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:32,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:33,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:33,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:34,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:34,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:35,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:35,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:36,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:36,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:37,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:37,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:38,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:38,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:39,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:39,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:40,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:40,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:41,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:41,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:42,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:42,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:43,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:43,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:44,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:44,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:45,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:45,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:46,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:46,679 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:47,179 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:47,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:48,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:48,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:49,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:49,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:50,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:50,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:51,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:51,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:52,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:52,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:53,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:53,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:54,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:54,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:55,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:55,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:56,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:56,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:57,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:57,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:58,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:58,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:59,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:18:59,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:00,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:00,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:01,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:01,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:02,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:02,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:03,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:03,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:04,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:04,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:05,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:05,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:06,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:06,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:07,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:07,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:08,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:08,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:09,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:09,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:10,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:10,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:11,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:11,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:12,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:12,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:13,178 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:13,678 - src.pipeline - ERROR - Error processing audio window: name 's3ession_action' is not defined
+2025-07-11 14:19:14,053 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 14:19:14,175 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 14:19:14,275 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 14:19:15,233 - src.events.storage - INFO - Daily summary saved: 14 events
+2025-07-11 14:19:15,233 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-11 14:19:18,442 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-11 14:19:18,443 - src.audio.processor - INFO - Audio device index: 8
+2025-07-11 14:19:18,443 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-11 14:19:18,443 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-11 14:19:18,443 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-11 14:19:18,443 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-11 14:19:18,451 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-11 14:19:19,958 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-11 14:19:20,164 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-11 14:19:20,165 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-11 14:19:20,165 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-11 14:19:20,165 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-11 14:19:20,165 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-11 14:19:20,165 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-11 14:19:20,165 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-11 14:19:20,165 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-11 14:19:20,165 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-11 14:19:20,165 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-11 14:19:20,167 - src.audio.processor - INFO - Audio stream started
+2025-07-11 14:19:42,628 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-11 14:19:42,672 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-11 14:19:42,771 - src.audio.processor - INFO - Audio stream stopped
+2025-07-11 14:19:43,189 - src.events.storage - INFO - Daily summary saved: 14 events
+2025-07-11 14:19:43,189 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-14 09:21:53,354 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-14 09:21:53,354 - src.audio.processor - INFO - Audio device index: 8
+2025-07-14 09:21:53,354 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-14 09:21:53,354 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-14 09:21:53,354 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-14 09:21:53,354 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-14 09:21:53,362 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-14 09:21:54,835 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-14 09:21:55,040 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-14 09:21:55,040 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-14 09:21:55,040 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-14 09:21:55,040 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-14 09:21:55,040 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-14 09:21:55,040 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-14 09:21:55,041 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-14 09:21:55,041 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-14 09:21:55,041 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-14 09:21:55,041 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-14 09:21:55,042 - src.audio.processor - INFO - Audio stream started
+2025-07-14 09:23:17,751 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-14 09:23:18,048 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-14 09:23:18,148 - src.audio.processor - INFO - Audio stream stopped
+2025-07-14 09:23:19,130 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-14 09:23:19,130 - src.pipeline - INFO - Pipeline cleanup completed
+2025-07-14 09:52:56,333 - src.audio.processor - INFO - Using configured device index: 8
+2025-07-14 09:52:56,333 - src.audio.processor - INFO - Audio device index: 8
+2025-07-14 09:52:56,333 - src.audio.processor - INFO - Device sample rate: 44100
+2025-07-14 09:52:56,333 - src.audio.processor - INFO - PANNs sample rate: 32000
+2025-07-14 09:52:56,333 - src.audio.processor - INFO - Vosk sample rate: 16000
+2025-07-14 09:52:56,333 - src.audio.processor - INFO - Vosk buffer duration: 5.0s (80000 samples)
+2025-07-14 09:52:56,341 - src.classification.audio_classifier - INFO - Loading PANNs CNN14 on cuda
+2025-07-14 09:52:57,809 - src.classification.audio_classifier - INFO - PANNs CNN14 loaded successfully
+2025-07-14 09:52:58,009 - src.classification.audio_classifier - INFO - Vosk STT model loaded successfully
+2025-07-14 09:52:58,009 - src.classification.audio_classifier - INFO - Loaded 5 abnormal label groups
+2025-07-14 09:52:58,009 - src.audio.speech_session - INFO - Speech session manager initialized:
+2025-07-14 09:52:58,009 - src.audio.speech_session - INFO -   Min session length: 1.0s
+2025-07-14 09:52:58,009 - src.audio.speech_session - INFO -   Max silence gap: 1.5s
+2025-07-14 09:52:58,009 - src.audio.speech_session - INFO -   Silence threshold: 3 windows
+2025-07-14 09:52:58,010 - src.events.logger - INFO - MQTT client connected to localhost:1883
+2025-07-14 09:52:58,010 - src.events.storage - INFO - Local storage initialized in: data
+2025-07-14 09:52:58,010 - src.pipeline - INFO - Live audio pipeline initialized
+2025-07-14 09:52:58,010 - src.pipeline - INFO - Starting live audio analysis pipeline
+2025-07-14 09:52:58,011 - src.audio.processor - INFO - Audio stream started
+2025-07-14 09:53:15,586 - src.pipeline - INFO - Received shutdown signal, stopping pipeline...
+2025-07-14 09:53:16,016 - src.pipeline - INFO - Cleaning up pipeline resources...
+2025-07-14 09:53:16,116 - src.audio.processor - INFO - Audio stream stopped
+2025-07-14 09:53:17,032 - src.events.storage - INFO - Daily summary saved: 0 events
+2025-07-14 09:53:17,032 - src.pipeline - INFO - Pipeline cleanup completed

@@ -1,0 +1,46 @@
+# Elderly care profile - focused on falls, medical emergencies, and safety
+audio:
+  buffer_duration: 8.0       # longer buffer for better speech recognition
+
+analysis:
+  thresholds:
+    speech_threshold: 0.30   # clear speech detection
+    abnormal_threshold: 0.18 # sensitive to falls and emergencies
+    
+  # Elderly care specific abnormal sound groups
+  abnormal_label_groups:
+    fall_detection: ["Thump", "Bang", "Crash", "Slam"]
+    medical_emergency: ["Cough", "Wheeze", "Gasp", "Groan"]
+    distress: ["Scream", "Yell", "Crying, sobbing", "Moan"]
+    safety_alerts: ["Alarm", "Smoke detector, smoke alarm", "Buzzer"]
+    mobility_aids: ["Walk, footsteps", "Crutch", "Walker"]
+    emergency_calls: ["Siren", "Civil defense siren"]
+
+sentiment:
+  enabled: true
+  keywords:
+    negative: ["help", "emergency", "pain", "hurt", "fell", "can't", "dizzy", "chest", "breathing", "call", "doctor", "ambulance"]
+    positive: ["fine", "okay", "good", "better", "comfortable", "safe"]
+
+# Patient speech session management
+speech_session:
+  min_length: 1.0          # allow for slower speech
+  max_silence_gap: 3.0     # elderly may pause more when speaking
+  silence_threshold: 5     # more patience for speech patterns
+
+# Comprehensive logging for medical records
+logging:
+  level: "INFO"
+  
+# Long-term storage for health monitoring
+storage:
+  base_dir: "elderly_care_data"
+  cleanup_days: 180        # keep data longer for health trends
+
+# MQTT for healthcare integration
+mqtt:
+  enabled: true
+  broker: "localhost:1883"
+  topic: "eldercare/alerts"
+  username: null
+  password: null

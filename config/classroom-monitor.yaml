@@ -1,0 +1,47 @@
+# Classroom monitoring profile - focused on educational environment and student safety
+audio:
+  buffer_duration: 6.0       # good for classroom discussions
+
+analysis:
+  thresholds:
+    speech_threshold: 0.20   # sensitive to student voices
+    abnormal_threshold: 0.35 # moderate - classrooms can be noisy
+    
+  # Classroom specific abnormal sound groups
+  abnormal_label_groups:
+    disruption: ["Yell", "Scream", "Shout"]
+    safety_concerns: ["Breaking", "Glass", "Shatter", "Crash"]
+    emergency_alerts: ["Alarm", "Smoke detector, smoke alarm", "Fire alarm", "Siren"]
+    behavioral_issues: ["Crying, sobbing", "Argument", "Fight"]
+    equipment_problems: ["Squeak", "Bang", "Slam"]
+
+sentiment:
+  enabled: true
+  keywords:
+    negative: ["help", "emergency", "fire", "drill", "lockdown", "hurt", "fight", "bully", "scared", "sick"]
+    positive: ["good", "great", "excellent", "learning", "understand", "fun", "happy", "ready"]
+
+# Educational speech session management
+speech_session:
+  min_length: 1.2          # allow for complete thoughts
+  max_silence_gap: 2.0     # students may pause while thinking
+  silence_threshold: 3     # classroom discussions have natural pauses
+
+# Educational logging
+logging:
+  level: "INFO"
+  
+# Classroom data storage
+storage:
+  base_dir: "classroom_data"
+  cleanup_days: 30         # shorter retention for student privacy
+
+# Disable external access for privacy
+websocket:
+  enabled: true
+  host: "localhost"        # local only for student privacy
+  port: 8765
+
+# No MQTT for privacy reasons
+mqtt:
+  enabled: false

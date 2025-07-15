@@ -4,6 +4,7 @@ import csv
 from datetime import datetime
 from typing import Dict, Any, List
 import logging
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -40,14 +41,31 @@ class LocalEventStorage:
                 writer = csv.writer(f)
                 writer.writerow(['timestamp', 'type', 'classification', 'confidence', 'description'])
     
+    def _convert_numpy_types(self, obj):
+        """Convert numpy types to native Python types for JSON serialization"""
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, dict):
+            return {k: self._convert_numpy_types(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self._convert_numpy_types(item) for item in obj]
+        return obj
+
     def store_event(self, event_type: str, data: Dict[str, Any]):
         """Store event in JSONL format"""
         timestamp = datetime.now().isoformat()
         
+        # Convert numpy types to native Python types
+        converted_data = self._convert_numpy_types(data)
+        
         event = {
             "timestamp": timestamp,
             "type": event_type,
-            "data": data
+            "data": converted_data
         }
         
         try:
@@ -60,6 +78,10 @@ class LocalEventStorage:
                     confidence: float = 0.0, duration: float = 0.0):
         """Store speech transcript in CSV format"""
         timestamp = datetime.now().isoformat()
+        
+        # Convert numpy types to native Python types
+        confidence = float(confidence) if hasattr(confidence, 'dtype') else confidence
+        duration = float(duration) if hasattr(duration, 'dtype') else duration
         
         try:
             with open(self.speech_file, 'a', newline='', encoding='utf-8') as f:
@@ -89,6 +111,9 @@ class LocalEventStorage:
                      confidence: float, description: str = ""):
         """Store anomaly in CSV format"""
         timestamp = datetime.now().isoformat()
+        
+        # Convert numpy types to native Python types
+        confidence = float(confidence) if hasattr(confidence, 'dtype') else confidence
         
         try:
             with open(self.anomalies_file, 'a', newline='', encoding='utf-8') as f:

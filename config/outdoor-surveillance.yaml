@@ -1,0 +1,54 @@
+# Outdoor surveillance profile - focused on perimeter security and outdoor environments
+audio:
+  buffer_duration: 7.0       # longer buffer for outdoor acoustics
+
+analysis:
+  thresholds:
+    speech_threshold: 0.35   # higher due to wind/outdoor noise
+    abnormal_threshold: 0.25 # moderate sensitivity for real threats
+    
+  # Outdoor surveillance specific abnormal sound groups
+  abnormal_label_groups:
+    vehicle_activity: ["Motor vehicle engine", "Car door", "Truck", "Motorcycle"]
+    intrusion: ["Footsteps", "Walk, footsteps", "Run", "Rustling"]
+    property_damage: ["Breaking", "Glass", "Shatter", "Crash", "Bang"]
+    security_breach: ["Fence", "Gate", "Chain", "Metal"]
+    distress_calls: ["Scream", "Yell", "Help", "Whistle"]
+    emergency_vehicles: ["Siren", "Civil defense siren", "Air horn, truck horn"]
+    weapons: ["Gunshot, gunfire"]
+    animals: ["Dog", "Cat", "Animal", "Bird"]
+
+sentiment:
+  enabled: true
+  keywords:
+    negative: ["help", "emergency", "police", "fire", "intruder", "break", "steal", "robbery", "attack"]
+    positive: ["safe", "clear", "patrol", "secure", "authorized"]
+
+# Outdoor environment speech patterns
+speech_session:
+  min_length: 1.0          # outdoor conversations
+  max_silence_gap: 3.0     # wind and distance affect speech
+  silence_threshold: 5     # outdoor environments have more ambient noise
+
+# Security logging
+logging:
+  level: "INFO"
+  
+# Surveillance data storage
+storage:
+  base_dir: "surveillance_data"
+  cleanup_days: 60         # security footage retention period
+
+# Integration with security systems
+mqtt:
+  enabled: true
+  broker: "localhost:1883"
+  topic: "security/outdoor"
+  username: null
+  password: null
+
+# Remote monitoring capability
+websocket:
+  enabled: true
+  host: "0.0.0.0"          # allow remote security monitoring
+  port: 8765

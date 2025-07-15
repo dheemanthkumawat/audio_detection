@@ -11,6 +11,7 @@ from .classification.audio_classifier import AudioClassifier
 from .events.logger import EventLogger
 from .events.storage import LocalEventStorage
 from .utils.config import Config
+from .web.websocket_server import WebSocketServer
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +28,12 @@ class LiveAudioPipeline:
         self.speech_session_manager = SpeechSessionManager(self.config)
         self.event_logger = EventLogger(self.config)
         self.local_storage = LocalEventStorage(self.config)
+        
+        # Initialize WebSocket server for real-time frontend
+        self.websocket_server = WebSocketServer(
+            host=self.config.get("websocket.host", "localhost"),
+            port=self.config.get("websocket.port", 8765)
+        )
         
         # Pipeline state
         self.running = True
@@ -95,6 +102,10 @@ class LiveAudioPipeline:
             # Print classification (every 10th window to reduce spam)
             if self.total_windows_processed % 10 == 0:
                 print(f"[PANNs] {classification} ({confidence:.3f}) [Window {self.total_windows_processed}]")
+                # Send to WebSocket frontend
+                self.websocket_server.send_audio_classification(
+                    classification, confidence, self.total_windows_processed
+                )
             
             # Check for abnormal sounds
             self._handle_anomaly_detection(scores, classification, confidence)
@@ -105,6 +116,8 @@ class LiveAudioPipeline:
             
             if session_action == 'start_session':
                 self._handle_speech_session_start()
+                # Try transcription when session starts (hybrid approach)
+                # self._try_transcription("session_start")
                 
             elif session_action == 'end_session':
                 self._handle_speech_session_end()
@@ -152,6 +165,11 @@ class LiveAudioPipeline:
             
             # Also log to MQTT if configured
             self.event_logger.log_anomaly(abnormal_tag, abnormal_prob)
+            
+            # Send to WebSocket frontend
+            self.websocket_server.send_anomaly_detection(
+                abnormal_tag, classification, abnormal_prob
+            )
     
     def _handle_speech_session_start(self):
         """Handle start of speech session"""
@@ -190,6 +208,11 @@ class LiveAudioPipeline:
                 
                 # Also log to MQTT if configured
                 self.event_logger.log_speech(transcript, sentiment)
+                
+                # Send to WebSocket frontend
+                self.websocket_server.send_speech_detection(
+                    transcript, confidence=0.8, trigger=trigger
+                )
                 
                 # Check for negative sentiment as anomaly
                 if sentiment["sentiment"] in ["negative", "mixed"]:
@@ -232,6 +255,15 @@ class LiveAudioPipeline:
         self.logger.info("Starting live audio analysis pipeline")
         
         try:
+            # Start WebSocket server
+            self.websocket_server.start_in_thread()
+            
+            # Send initial status to frontend
+            self.websocket_server.send_system_status(
+                "Pipeline started",
+                {"components": ["AudioProcessor", "AudioClassifier", "EventLogger", "LocalStorage"]}
+            )
+            
             # Start audio stream
             self.audio_processor.start_stream()
             
@@ -259,6 +291,9 @@ class LiveAudioPipeline:
         
         # Close event logger
         self.event_logger.close()
+        
+        # Stop WebSocket server
+        self.websocket_server.stop()
         
         # Save daily summary
         self.local_storage.save_daily_summary()

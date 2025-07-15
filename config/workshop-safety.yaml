@@ -1,0 +1,47 @@
+# Workshop/Industrial safety profile - focused on equipment, accidents, and workplace safety
+audio:
+  buffer_duration: 5.0       # good for workshop environment
+
+analysis:
+  thresholds:
+    speech_threshold: 0.40   # higher threshold due to machine noise
+    abnormal_threshold: 0.30 # clear dangerous events only
+    
+  # Workshop safety specific abnormal sound groups
+  abnormal_label_groups:
+    equipment_failure: ["Squeak", "Screech", "Grinding", "Crack"]
+    safety_alerts: ["Alarm", "Buzzer", "Reversing beeps", "Air horn, truck horn"]
+    accidents: ["Breaking", "Crash", "Bang", "Slam", "Shatter"]
+    human_distress: ["Scream", "Yell", "Help"]
+    fire_safety: ["Smoke detector, smoke alarm", "Siren", "Fire alarm"]
+    tool_problems: ["Drill", "Saw", "Motor vehicle engine"]
+    emergency: ["Civil defense siren", "Gunshot, gunfire"]
+
+sentiment:
+  enabled: true
+  keywords:
+    negative: ["help", "emergency", "fire", "accident", "injured", "stop", "danger", "broken", "malfunction", "leak"]
+    positive: ["safe", "clear", "good", "working", "fixed", "secure"]
+
+# Workshop communication patterns
+speech_session:
+  min_length: 0.8          # quick commands and alerts
+  max_silence_gap: 2.5     # account for machine noise interruptions
+  silence_threshold: 4     # workshop environments are noisy
+
+# Safety-focused logging
+logging:
+  level: "INFO"
+  
+# Safety incident storage
+storage:
+  base_dir: "workshop_safety_data"
+  cleanup_days: 365        # keep safety data for compliance
+
+# Integration with safety systems
+mqtt:
+  enabled: true
+  broker: "localhost:1883"
+  topic: "workshop/safety"
+  username: null
+  password: null

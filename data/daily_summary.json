@@ -1,0 +1,13 @@
+{
+  "date": "2025-07-14",
+  "total_events": 0,
+  "speech_count": 0,
+  "anomaly_count": 0,
+  "anomaly_types": {},
+  "sentiment_distribution": {
+    "positive": 0,
+    "negative": 0,
+    "neutral": 0,
+    "mixed": 0
+  }
+}

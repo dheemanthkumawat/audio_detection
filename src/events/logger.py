@@ -5,6 +5,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 import paho.mqtt.client as mqtt
 from threading import Thread
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -49,14 +50,31 @@ class EventLogger:
             logger.error(f"Failed to initialize MQTT: {e}")
             self.mqtt_client = None
     
+    def _convert_numpy_types(self, obj):
+        """Convert numpy types to native Python types for JSON serialization"""
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, dict):
+            return {k: self._convert_numpy_types(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self._convert_numpy_types(item) for item in obj]
+        return obj
+
     def log_event(self, event_type: str, data: Dict[str, Any]):
         """Log an event to file and MQTT"""
         timestamp = datetime.now().isoformat()
         
+        # Convert numpy types to native Python types
+        converted_data = self._convert_numpy_types(data)
+        
         event = {
             "timestamp": timestamp,
             "type": event_type,
-            "data": data
+            "data": converted_data
         }
         
         # Log to file
@@ -88,6 +106,9 @@ class EventLogger:
                    transcript: Optional[str] = None, 
                    sentiment: Optional[Dict] = None):
         """Log an anomaly event"""
+        # Convert numpy types to native Python types
+        confidence = float(confidence) if hasattr(confidence, 'dtype') else confidence
+        
         data = {
             "classification": classification,
             "confidence": confidence

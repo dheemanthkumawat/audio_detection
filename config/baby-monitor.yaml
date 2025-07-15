@@ -1,0 +1,43 @@
+# Baby monitor profile - focused on baby sounds, crying, and safety
+audio:
+  buffer_duration: 4.0       # shorter buffer for quick baby responses
+
+analysis:
+  thresholds:
+    speech_threshold: 0.15   # very sensitive to detect baby sounds
+    abnormal_threshold: 0.25 # moderate for actual emergencies
+    
+  # Baby monitor specific abnormal sound groups
+  abnormal_label_groups:
+    baby_distress: ["Crying, sobbing", "Child shriek", "Scream", "Yell"]
+    emergency: ["Siren", "Alarm", "Smoke detector, smoke alarm"]
+    safety_concern: ["Cough", "Sneeze", "Wheeze"]
+    dangerous_sounds: ["Breaking", "Glass", "Shatter", "Bang"]
+    choking_sounds: ["Gasp", "Wheeze", "Cough"]
+
+sentiment:
+  enabled: true
+  keywords:
+    negative: ["cry", "hurt", "pain", "help", "emergency", "sick", "fever", "cough"]
+    positive: ["happy", "laugh", "giggle", "play", "good", "sleep"]
+
+# Very responsive for baby monitoring
+speech_session:
+  min_length: 0.3          # detect very short baby sounds
+  max_silence_gap: 0.8     # babies don't pause long when distressed
+  silence_threshold: 2     # quick detection
+
+# Detailed logging for baby care
+logging:
+  level: "DEBUG"
+  
+# Store baby monitoring data
+storage:
+  base_dir: "baby_monitor_data"
+  cleanup_days: 30
+
+# Enhanced WebSocket for real-time baby monitoring
+websocket:
+  enabled: true
+  host: "0.0.0.0"          # allow access from other devices
+  port: 8765

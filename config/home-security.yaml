@@ -1,0 +1,39 @@
+# Home security profile - focused on break-ins, emergencies, and intrusions
+audio:
+  buffer_duration: 6.0       # good balance for home security alerts
+
+analysis:
+  thresholds:
+    speech_threshold: 0.25   # moderate sensitivity for speech
+    abnormal_threshold: 0.20 # more sensitive to unusual sounds
+    
+  # Home security focused abnormal sound groups
+  abnormal_label_groups:
+    break_in: ["Breaking", "Glass", "Shatter", "Crunch"]
+    emergency: ["Siren", "Civil defense siren", "Alarm", "Smoke detector, smoke alarm"]
+    intrusion: ["Footsteps", "Walk, footsteps", "Run"]
+    doors_windows: ["Door slam", "Slam", "Bang"]
+    security_alert: ["Buzzer", "Beep, bleep", "Reversing beeps"]
+    danger: ["Scream", "Yell", "Child shriek", "Screech"]
+    weapons: ["Gunshot, gunfire"]
+
+sentiment:
+  enabled: true
+  keywords:
+    negative: ["help", "emergency", "fire", "police", "danger", "intruder", "break", "stolen", "robbery"]
+    positive: ["safe", "okay", "fine", "secure"]
+
+# Quick response for security events
+speech_session:
+  min_length: 0.5          # very quick detection for emergency calls
+  max_silence_gap: 1.0     # short gap - security situations are urgent
+  silence_threshold: 2     # quick session ending
+
+# Enhanced logging for security events
+logging:
+  level: "INFO"
+  
+# Store more security events
+storage:
+  base_dir: "security_data"
+  cleanup_days: 90         # keep security data longer
