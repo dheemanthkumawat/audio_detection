@@ -18,16 +18,16 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
    rm vosk-model.zip
    ```
    
-   **Copy env file:**
+3. **Copy env file:**
    ```bash
    cp .env.example .env
    ```
-   
-3. **List audio devices (optional):**
+
+   Run this command to get AUDIO_DEVICE_INDEX number 
    ```bash
-   python main.py --list-devices
+   python -m sounddevice
    ```
-   Enter the micprophone AUDIO_DEVICE_INDEX in .env file to the number you get for your connected device
+   Enter the number next to the audio device to AUDIO_DEVICE_INDEX in .env file
 
 4. **Run with default config:**
    ```bash
