@@ -9,7 +9,7 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
    pip install -r requirements.txt
    ```
 
-2. **Download Vosk model:**
+2. **Download Vosk model ( Skip if using Whisper model ):**
    ```bash
    mkdir -p models
    wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip -O models/vosk-model.zip
