@@ -25,12 +25,12 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
 
 4. **Run with default config:**
    ```bash
-   python main_new.py
+   python main_web.py
    ```
 
 5. **Run with quiet-office profile:**
    ```bash
-   python main_new.py --profile quiet-office
+   python main_web.py --profile quiet-office
    ```
 
 ## Features
