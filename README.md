@@ -29,12 +29,21 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
    ```
    Enter the number next to the audio device to AUDIO_DEVICE_INDEX in .env file
 
-4. **Run with default config:**
+4. Setup ollama
+   ```bash
+   ollama serve
+   ```
+   ```bash
+   ollama pull deepseek-r1:8b
+   ollama run deepseek-r1:8b
+   ```
+
+5. **Run with default config:**
    ```bash
    python main_web.py
    ```
 
-5. **Run with quiet-office profile:**
+6. **Run with quiet-office profile:**
    ```bash
    python main_web.py --profile quiet-office
    ```
