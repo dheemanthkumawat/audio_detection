@@ -198,12 +198,26 @@ class LiveAudioPipeline:
                 session_info = self.speech_session_manager.get_session_info()
                 session_duration = session_info.get('session_duration', 0)
                 
+                # Analyze speakers (if enabled)
+                speaker_analysis = None
+                if hasattr(self.classifier, 'speaker_analyzer') and self.classifier.speaker_analyzer:
+                    # Get the buffered audio for speaker analysis
+                    buffered_audio = self.audio_processor.get_buffered_audio()
+                    if buffered_audio is not None and len(buffered_audio) > 0:
+                        speaker_analysis = self.classifier.analyze_speakers(
+                            buffered_audio, transcript, session_duration
+                        )
+                        if speaker_analysis:
+                            print(f"👥 Speakers: {speaker_analysis['total_speakers']} detected, "
+                                  f"dominant: {speaker_analysis['dominant_speaker']}")
+                
                 # Store speech locally
                 self.local_storage.store_speech(
                     transcript=transcript,
                     sentiment=sentiment,
                     confidence=0.8,
-                    duration=session_duration
+                    duration=session_duration,
+                    speaker_analysis=speaker_analysis
                 )
                 
                 # Also log to MQTT if configured
@@ -211,21 +225,54 @@ class LiveAudioPipeline:
                 
                 # Send to WebSocket frontend
                 self.websocket_server.send_speech_detection(
-                    transcript, confidence=0.8, trigger=trigger
+                    transcript, confidence=0.8, trigger=trigger, 
+                    speaker_analysis=speaker_analysis, sentiment_analysis=sentiment
                 )
                 
-                # Check for negative sentiment as anomaly
-                if sentiment["sentiment"] in ["negative", "mixed"]:
+                # Check for negative sentiment or concerning content as anomaly
+                is_concerning = False
+                anomaly_type = "negative_speech"
+                description = f"Negative sentiment detected: {transcript[:50]}..."
+                
+                # Enhanced analysis with DeepSeek results
+                if sentiment.get("source") == "deepseek":
+                    # Use DeepSeek's more detailed analysis
+                    is_concerning = (
+                        sentiment["sentiment"] in ["negative", "mixed"] or
+                        sentiment.get("emergency", False) or
+                        sentiment.get("threat", False) or
+                        sentiment.get("toxicity") in ["moderate", "severe"]
+                    )
+                    
+                    if sentiment.get("emergency", False):
+                        anomaly_type = "emergency_speech"
+                        description = f"Emergency indicators detected: {transcript[:50]}..."
+                    elif sentiment.get("threat", False):
+                        anomaly_type = "threat_speech"
+                        description = f"Threat indicators detected: {transcript[:50]}..."
+                    elif sentiment.get("toxicity") in ["moderate", "severe"]:
+                        anomaly_type = "toxic_speech"
+                        description = f"Toxic content detected: {transcript[:50]}..."
+                        
+                    print(f"🤖 DeepSeek: {sentiment.get('summary', 'Analysis complete')}")
+                    
+                else:
+                    # Fallback to simple sentiment check
+                    is_concerning = sentiment["sentiment"] in ["negative", "mixed"]
+                
+                if is_concerning:
+                    confidence = sentiment.get("confidence", 0.8)
+                    
                     self.local_storage.store_anomaly(
-                        anomaly_type="negative_speech",
+                        anomaly_type=anomaly_type,
                         classification="Speech",
-                        confidence=0.8,
-                        description=f"Negative sentiment detected: {transcript[:50]}..."
+                        confidence=confidence,
+                        description=description
                     )
                     
                     self.event_logger.log_anomaly(
-                        "negative_speech", 
-                        0.8,
+                        anomaly_type, 
+                        confidence,
                         transcript,
                         sentiment
                     )

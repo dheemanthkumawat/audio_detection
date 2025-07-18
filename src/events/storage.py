@@ -33,7 +33,7 @@ class LocalEventStorage:
         if not os.path.exists(self.speech_file):
             with open(self.speech_file, 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
-                writer.writerow(['timestamp', 'transcript', 'sentiment', 'confidence', 'duration'])
+                writer.writerow(['timestamp', 'transcript', 'sentiment', 'confidence', 'duration', 'speakers', 'dominant_speaker'])
         
         # Anomalies CSV
         if not os.path.exists(self.anomalies_file):
@@ -75,7 +75,8 @@ class LocalEventStorage:
             logger.error(f"Failed to store event: {e}")
     
     def store_speech(self, transcript: str, sentiment: Dict[str, Any], 
-                    confidence: float = 0.0, duration: float = 0.0):
+                    confidence: float = 0.0, duration: float = 0.0, 
+                    speaker_analysis: Dict[str, Any] = None):
         """Store speech transcript in CSV format"""
         timestamp = datetime.now().isoformat()
         
@@ -86,21 +87,36 @@ class LocalEventStorage:
         try:
             with open(self.speech_file, 'a', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
+                # Extract speaker information
+                speakers_count = 0
+                dominant_speaker = "UNKNOWN"
+                if speaker_analysis:
+                    speakers_count = speaker_analysis.get('total_speakers', 0)
+                    dominant_speaker = speaker_analysis.get('dominant_speaker', "UNKNOWN")
+                
                 writer.writerow([
                     timestamp,
                     transcript,
                     sentiment.get('sentiment', 'neutral'),
                     confidence,
-                    duration
+                    duration,
+                    speakers_count,
+                    dominant_speaker
                 ])
             
             # Also store in JSONL
-            self.store_event("speech", {
+            event_data = {
                 "transcript": transcript,
                 "sentiment": sentiment,
                 "confidence": confidence,
                 "duration": duration
-            })
+            }
+            
+            # Add speaker information if available
+            if speaker_analysis:
+                event_data["speaker_analysis"] = speaker_analysis
+            
+            self.store_event("speech", event_data)
             
             logger.info(f"Speech stored: {transcript[:50]}...")
             

@@ -144,7 +144,7 @@ class WebSocketServer:
         if self.server:
             self.server.close()
             
-    def send_speech_detection(self, transcript: str, confidence: float = 0.0, trigger: str = ""):
+    def send_speech_detection(self, transcript: str, confidence: float = 0.0, trigger: str = "", speaker_analysis: dict = None, sentiment_analysis: dict = None):
         """Send speech detection to frontend"""
         message = {
             "type": "speech",
@@ -155,6 +155,14 @@ class WebSocketServer:
                 "timestamp": datetime.now().isoformat()
             }
         }
+        
+        # Add speaker information if available
+        if speaker_analysis:
+            message["data"]["speaker_analysis"] = speaker_analysis
+        
+        # Add sentiment analysis if available (including DeepSeek results)
+        if sentiment_analysis:
+            message["data"]["sentiment_analysis"] = sentiment_analysis
         logger.info(f"Queuing speech detection: {transcript[:50]}...")
         self.message_queue.put(message)
         

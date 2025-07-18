@@ -6,6 +6,8 @@ import logging
 from typing import Dict, Tuple, Optional
 from panns_inference import AudioTagging, labels as panns_labels
 from faster_whisper import WhisperModel
+from src.audio.speaker_analyzer import SpeakerAnalyzer
+from src.analysis.deepseek_analyzer import DeepSeekAnalyzer
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +22,8 @@ class AudioClassifier:
         self._init_classifier()
         self._init_stt()
         self._setup_abnormal_detection()
+        self._init_speaker_analyzer()
+        self._init_deepseek_analyzer()
         
     def _init_classifier(self):
         if self.backend == "panns":
@@ -170,15 +174,44 @@ class AudioClassifier:
         
         return None
     
+    def _init_speaker_analyzer(self):
+        """Initialize speaker analyzer for diarization"""
+        try:
+            self.speaker_analyzer = SpeakerAnalyzer(self.config)
+            logger.info("Speaker analyzer initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize speaker analyzer: {e}")
+            self.speaker_analyzer = None
+    
+    def _init_deepseek_analyzer(self):
+        """Initialize DeepSeek analyzer for advanced sentiment analysis"""
+        try:
+            self.deepseek_analyzer = DeepSeekAnalyzer(self.config)
+            logger.info("DeepSeek analyzer initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize DeepSeek analyzer: {e}")
+            self.deepseek_analyzer = None
+    
     def is_speech(self, scores: np.ndarray) -> bool:
         """Check if audio contains speech based on PANNs scores"""
         return scores[self.speech_idx] > self.speech_threshold
     
     def analyze_sentiment(self, text: str) -> Dict[str, any]:
-        """Simple keyword-based sentiment analysis"""
+        """Advanced sentiment analysis using DeepSeek or fallback to keyword-based"""
         if not text:
-            return {"sentiment": "neutral", "keywords": []}
+            return {"sentiment": "neutral", "keywords": [], "source": "empty"}
         
+        # Try DeepSeek analysis first
+        if self.deepseek_analyzer and self.deepseek_analyzer.enabled:
+            try:
+                deepseek_result = self.deepseek_analyzer.analyze_content(text)
+                if deepseek_result and deepseek_result.get("source") == "deepseek":
+                    logger.info(f"🤖 DeepSeek analysis: {deepseek_result.get('summary', 'No summary')}")
+                    return deepseek_result
+            except Exception as e:
+                logger.error(f"DeepSeek analysis failed, falling back to keywords: {e}")
+        
+        # Fallback to simple keyword analysis
         text_lower = text.lower()
         negative_keywords = self.config.get("sentiment.keywords.negative", [])
         positive_keywords = self.config.get("sentiment.keywords.positive", [])
@@ -197,5 +230,47 @@ class AudioClassifier:
         
         return {
             "sentiment": sentiment,
-            "keywords": found_negative + found_positive
+            "keywords": found_negative + found_positive,
+            "confidence": 0.6,
+            "source": "keyword-fallback",
+            "toxicity": "none",
+            "profanity": False,
+            "emergency": "emergency" in text_lower or "help" in text_lower,
+            "threat": False,
+            "summary": f"Keyword-based analysis: {sentiment} sentiment",
+            "concerns": found_negative if found_negative else []
+        }
+    
+    def analyze_speakers(self, audio_buffer: np.ndarray, transcript: str, 
+                        session_duration: float) -> Optional[Dict]:
+        """
+        Analyze speakers in audio session
+        
+        Args:
+            audio_buffer: Audio data as numpy array (16kHz)
+            transcript: Transcribed text
+            session_duration: Duration of the session
+            
+        Returns:
+            Speaker analysis results or None if unavailable
+        """
+        if not self.speaker_analyzer:
+            return None
+        
+        # Run speaker diarization
+        speaker_data = self.speaker_analyzer.analyze_session(audio_buffer, sample_rate=16000)
+        
+        if not speaker_data:
+            return None
+        
+        # Assign transcript text to speakers
+        speaker_segments = self.speaker_analyzer.assign_text_to_speakers(
+            speaker_data, transcript, 0.0, session_duration
+        )
+        
+        return {
+            "speaker_segments": speaker_segments,
+            "speaker_stats": speaker_data.get("speaker_stats", {}),
+            "total_speakers": speaker_data.get("total_speakers", 0),
+            "dominant_speaker": speaker_data.get("dominant_speaker", "UNKNOWN")
         }

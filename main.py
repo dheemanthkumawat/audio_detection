@@ -28,71 +28,70 @@ class LiveAudioAnalyzer:
         
         self.running = True
         self.logger = logging.getLogger(__name__)
-    
+
     def setup_logging(self):
-        """Configure logging"""
-        level = getattr(logging, self.config.get("logging.level", "INFO"))
+        """Setup logging configuration"""
         logging.basicConfig(
-            level=level,
+            level=getattr(logging, self.config.get("logging.level", "INFO")),
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.StreamHandler(sys.stdout),
-                logging.FileHandler("logs/app.log")
+                logging.FileHandler(self.config.get("logging.file", "logs/pipeline.log")),
+                logging.StreamHandler()
             ]
         )
-    
-    def _signal_handler(self, sig, frame):
+
+    def _signal_handler(self, signum, frame):
         """Handle shutdown signals"""
-        self.logger.info("Received shutdown signal, stopping...")
+        self.logger.info(f"Received signal {signum}, shutting down...")
         self.running = False
-    
-    def process_audio_window(self, wav32: np.ndarray, wav16: np.ndarray):
-        """Process a single audio window through the complete pipeline"""
+
+    def audio_stream(self) -> Generator[np.ndarray, None, None]:
+        """Generate audio windows from the audio processor"""
+        for audio_window in self.audio_processor.stream():
+            if not self.running:
+                break
+            yield audio_window
+
+    def process_audio_window(self, audio_window: np.ndarray):
+        """Process a single audio window"""
         try:
-            # Run PANNs inference once and get scores
-            clipwise, _ = self.classifier.model.inference(wav32[None, :])
-            # Handle both torch tensor and numpy array returns
-            if hasattr(clipwise, 'cpu'):
-                scores = clipwise.squeeze(0).cpu().numpy()
-            else:
-                scores = clipwise.squeeze(0) if hasattr(clipwise, 'squeeze') else clipwise[0]
+            # Get PANNs classification
+            scores = self.classifier.classify(audio_window)
             
-            # Get top classification
-            top_class_idx = int(scores.argmax())
-            classification = self.classifier.class_names[top_class_idx]
-            confidence = float(scores[top_class_idx])
-            
-            # Print top classification (like in original script)
-            print(f"[PANNs] {classification} ({confidence:.3f})")
-            
-            # Check for abnormal sounds
-            abnormal_tag, abnormal_prob = None, 0.0
-            for tag, indices in self.classifier.abnormal_indices.items():
-                if indices:
-                    prob = scores[indices].max()
-                    if prob > abnormal_prob:
-                        abnormal_prob, abnormal_tag = prob, tag
-            
-            is_abnormal = abnormal_prob > self.classifier.abnormal_threshold
-            
-            if is_abnormal and abnormal_tag:
-                import time
-                print(f"🚨 {time.strftime('%H:%M:%S')}  ABNORMAL "
-                      f"{abnormal_tag.upper()} ({abnormal_prob:.2f})")
-                self.event_logger.log_anomaly(abnormal_tag, abnormal_prob)
-            
-            # Check if this is speech
-            if self.classifier.is_speech(scores):
-                # Get buffered audio (includes context before speech detection)
-                buffered_audio = self.audio_processor.get_buffered_audio()
-                
-                if len(buffered_audio) > 0:
-                    # Use buffered audio for Vosk STT (includes pre-speech context)
-                    transcript = self.classifier.transcribe_speech(buffered_audio)
-                    if transcript:
-                        print(f"🗣 Speech: {transcript}")
-                        sentiment = self.classifier.analyze_sentiment(transcript)
-                        self.event_logger.log_speech(transcript, sentiment)
+            if scores is not None:
+                # Check for speech
+                if self.classifier.is_speech(scores):
+                    print(f"🗣 Speech detected (confidence: {scores[self.classifier.speech_idx]:.2f})")
+                    
+                    # Get transcript
+                    buffered_audio = self.audio_processor.get_buffered_audio()
+                    if buffered_audio is not None:
+                        transcript = self.classifier.transcribe(buffered_audio)
+                        
+                        if transcript:
+                            print(f"📝 Transcript: {transcript}")
+                            
+                            # Analyze sentiment
+                            sentiment = self.classifier.analyze_sentiment(transcript)
+                            print(f"💭 Sentiment: {sentiment}")
+                            
+                            # Log the event
+                            self.event_logger.log_speech(transcript, sentiment)
+                    
+                # Check for anomalies
+                anomaly_type = self.classifier.detect_anomaly(scores)
+                if anomaly_type:
+                    confidence = scores[self.classifier.abnormal_indices[anomaly_type][0]]
+                    print(f"🚨 Anomaly detected: {anomaly_type} (confidence: {confidence:.2f})")
+                    
+                    # Log the anomaly
+                    self.event_logger.log_anomaly(anomaly_type, confidence)
+                    
+                    # Get current classification
+                    top_class = self.classifier.get_top_classification(scores)
+                    if top_class:
+                        class_name, class_confidence = top_class
+                        print(f"🎵 Classification: {class_name} (confidence: {class_confidence:.2f})")
                         
                         # Check for negative sentiment as anomaly
                         if sentiment["sentiment"] in ["negative", "mixed"]:
@@ -107,34 +106,30 @@ class LiveAudioAnalyzer:
             self.logger.error(f"Error processing audio window: {e}")
     
     def run(self):
-        """Run the live audio analysis pipeline"""
-        print("🔴 Live demo (Ctrl-C to quit)…")
-        self.logger.info("Starting live audio analysis...")
-        
+        """Main processing loop"""
         try:
-            # Start audio stream
-            self.audio_processor.start_stream()
+            print("🎵 Live Audio Analysis Pipeline")
+            print("=" * 40)
+            print(f"📊 Using profile: {self.config.profile}")
+            print(f"🎤 Audio device: {self.audio_processor.device_index}")
+            print(f"🔊 Sample rate: {self.audio_processor.device_sr}")
+            print(f"⏱️  Window size: {self.audio_processor.window_size}s")
+            print(f"📈 Stride: {self.audio_processor.stride}s")
+            print("=" * 40)
+            print("🔴 Recording... Press Ctrl+C to stop")
+            print()
             
-            # Process audio windows
-            for wav32, wav16 in self.audio_processor.get_audio_windows():
-                if not self.running:
-                    break
-                
-                self.process_audio_window(wav32, wav16)
+            self.logger.info("Starting audio analysis pipeline")
+            
+            for audio_window in self.audio_stream():
+                self.process_audio_window(audio_window)
                 
         except KeyboardInterrupt:
-            print("\nStopping…")
-            self.running = False
+            print("\n🛑 Stopping pipeline...")
         except Exception as e:
-            self.logger.error(f"Error in main loop: {e}")
+            self.logger.error(f"Pipeline error: {e}")
         finally:
-            self.cleanup()
-    
-    def cleanup(self):
-        """Clean up resources"""
-        self.logger.info("Cleaning up resources...")
-        self.audio_processor.stop_stream()
-        self.event_logger.close()
+            self.logger.info("Pipeline stopped")
 
 def main():
     """Main entry point"""

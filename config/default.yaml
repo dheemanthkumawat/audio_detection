@@ -43,6 +43,20 @@ sentiment:
     negative: ["help", "emergency", "fire", "police", "danger"]
     positive: ["thank", "good", "great", "wonderful"]
 
+speaker_analysis:
+  enabled: false  # Requires HuggingFace auth token
+  model: "pyannote/speaker-diarization-3.1"
+  # To enable: Get HF token from https://hf.co/settings/tokens
+  # Accept terms at https://hf.co/pyannote/speaker-diarization-3.1
+  # Set environment variable: HUGGINGFACE_TOKEN=your_token_here
+
+deepseek:
+  enabled: true
+  base_url: "http://localhost:11434"
+  model: "deepseek-r1:8b"
+  timeout: 15
+  max_retries: 2
+
 mqtt:
   enabled: false
   broker: "localhost:1883"

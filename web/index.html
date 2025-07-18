@@ -238,6 +238,151 @@
             line-height: 1.4;
         }
 
+        .speaker-info {
+            margin-top: 8px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #495057;
+        }
+
+        .deepseek-analysis {
+            margin-top: 8px;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            border-left: 4px solid #007bff;
+        }
+
+        .deepseek-analysis.ai-powered {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f1f8ff 100%);
+            border-left-color: #2196f3;
+        }
+
+        .deepseek-analysis.fallback {
+            background: #f8f9fa;
+            border-left-color: #6c757d;
+        }
+
+        .analysis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .confidence {
+            background: #007bff;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .sentiment {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        .sentiment.positive {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .sentiment.negative {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .sentiment.neutral {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .sentiment.mixed {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .warning {
+            color: #856404;
+            font-weight: bold;
+        }
+
+        .danger {
+            color: #721c24;
+            font-weight: bold;
+        }
+
+        .toxicity {
+            color: #6f42c1;
+            font-weight: bold;
+        }
+
+        .analysis-content {
+            line-height: 1.4;
+        }
+
+        .sentiment-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .tone {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.75em;
+        }
+
+        .topic, .content-analysis, .themes, .style {
+            margin: 4px 0;
+            font-size: 0.85em;
+        }
+
+        .summary {
+            margin: 8px 0;
+            padding: 6px;
+            background: #f8f9fa;
+            border-radius: 3px;
+            font-style: italic;
+        }
+
+        .alert {
+            margin: 4px 0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .alert.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .alert.danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .alert.distress {
+            background: #ffeaa7;
+            color: #8b7d00;
+        }
+
+        .alert.toxicity {
+            background: #e1bee7;
+            color: #6a1b9a;
+        }
+
         .confidence-bar {
             background: #e9ecef;
             height: 6px;
@@ -477,12 +622,66 @@
                 
                 const item = document.createElement('div');
                 item.className = 'detection-item speech';
+                // Build speaker information if available
+                let speakerInfo = '';
+                if (data.speaker_analysis && data.speaker_analysis.total_speakers > 0) {
+                    speakerInfo = `
+                        <div class="speaker-info">
+                            <strong>👥 Speakers:</strong> ${data.speaker_analysis.total_speakers} detected
+                            ${data.speaker_analysis.dominant_speaker !== 'UNKNOWN' ? 
+                                `<br><strong>🎤 Dominant:</strong> ${data.speaker_analysis.dominant_speaker}` : ''}
+                        </div>
+                    `;
+                }
+                
+                // Build DeepSeek analysis information if available
+                let deepSeekInfo = '';
+                if (data.sentiment_analysis) {
+                    const analysis = data.sentiment_analysis;
+                    const isDeepSeek = analysis.source === 'deepseek';
+                    
+                    deepSeekInfo = `
+                        <div class="deepseek-analysis ${isDeepSeek ? 'ai-powered' : 'fallback'}">
+                            <div class="analysis-header">
+                                <strong>${isDeepSeek ? '🤖 DeepSeek Analysis' : '📊 Basic Analysis'}</strong>
+                                <span class="confidence">${(analysis.confidence * 100).toFixed(0)}%</span>
+                            </div>
+                            <div class="analysis-content">
+                                <div class="sentiment-row">
+                                    <span class="sentiment ${analysis.sentiment}">${analysis.sentiment.toUpperCase()}</span>
+                                    ${analysis.emotional_tone ? `<span class="tone">😊 ${analysis.emotional_tone}</span>` : ''}
+                                </div>
+                                
+                                ${analysis.conversation_topic ? `<div class="topic"><strong>💬 Topic:</strong> ${analysis.conversation_topic}</div>` : ''}
+                                
+                                ${analysis.content_analysis ? `<div class="content-analysis"><strong>🔍 Analysis:</strong> ${analysis.content_analysis}</div>` : ''}
+                                
+                                ${analysis.key_themes && analysis.key_themes.length > 0 ? 
+                                    `<div class="themes"><strong>🏷️ Themes:</strong> ${analysis.key_themes.join(', ')}</div>` : ''}
+                                
+                                ${analysis.communication_style ? `<div class="style"><strong>🗣️ Style:</strong> ${analysis.communication_style}</div>` : ''}
+                                
+                                ${analysis.summary ? `<div class="summary"><em>"${analysis.summary}"</em></div>` : ''}
+                                
+                                ${analysis.emergency ? '<div class="alert warning">⚠️ Emergency Detected</div>' : ''}
+                                ${analysis.threat ? '<div class="alert danger">🚨 Threat Detected</div>' : ''}
+                                ${analysis.distress_level && analysis.distress_level !== 'none' ? 
+                                    `<div class="alert distress">😰 Distress Level: ${analysis.distress_level}</div>` : ''}
+                                ${analysis.toxicity && analysis.toxicity !== 'none' ? 
+                                    `<div class="alert toxicity">☠️ Toxicity: ${analysis.toxicity}</div>` : ''}
+                            </div>
+                        </div>
+                    `;
+                }
+                
                 item.innerHTML = `
                     <div class="detection-header">
                         <div class="detection-type">Speech (${data.trigger})</div>
                         <div class="detection-time">${this.formatTime(data.timestamp)}</div>
                     </div>
                     <div class="detection-content">${data.transcript}</div>
+                    ${speakerInfo}
+                    ${deepSeekInfo}
                     ${data.confidence > 0 ? `
                         <div class="confidence-bar">
                             <div class="confidence-fill" style="width: ${data.confidence * 100}%"></div>
