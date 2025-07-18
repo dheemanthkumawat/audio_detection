@@ -35,7 +35,7 @@ stt:
     device: "cpu"           # auto, cpu, cuda
     compute_type: "int8"    # int8, int16, float16, float32
     language: "auto"        # auto-detect or specific language code (en, es, fr, de, etc.)
-    task: "transcribe"      # transcribe or translate (translate converts to English)
+    task: "translate"      # transcribe or translate (translate converts to English)
 
 sentiment:
   enabled: true

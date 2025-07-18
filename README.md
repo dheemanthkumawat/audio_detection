@@ -9,7 +9,7 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
    pip install -r requirements.txt
    ```
 
-2. **Download Vosk model:**
+2. **Download Vosk model ( Skip if using Whisper model ):**
    ```bash
    mkdir -p models
    wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip -O models/vosk-model.zip
@@ -17,20 +17,26 @@ Real-time audio processing pipeline using PANNs CNN14 for audio classification, 
    mv vosk-model-small-en-us-0.15 vosk-small-en
    rm vosk-model.zip
    ```
-
-3. **List audio devices (optional):**
+   
+3. **Copy env file:**
    ```bash
-   python main.py --list-devices
+   cp .env.example .env
    ```
+
+   Run this command to get AUDIO_DEVICE_INDEX number 
+   ```bash
+   python -m sounddevice
+   ```
+   Enter the number next to the audio device to AUDIO_DEVICE_INDEX in .env file
 
 4. **Run with default config:**
    ```bash
-   python main_new.py
+   python main_web.py
    ```
 
 5. **Run with quiet-office profile:**
    ```bash
-   python main_new.py --profile quiet-office
+   python main_web.py --profile quiet-office
    ```
 
 ## Features
